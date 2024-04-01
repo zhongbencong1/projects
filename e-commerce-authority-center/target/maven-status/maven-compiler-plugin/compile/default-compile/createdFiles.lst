@@ -1,0 +1,7 @@
+com\imooc\ecommerce\AuthorityCenterApplication.class
+com\imooc\ecommerce\constant\AuthorityConstant.class
+com\imooc\ecommerce\controller\AuthorityController.class
+com\imooc\ecommerce\dao\EcommerceUserDao.class
+com\imooc\ecommerce\service\impl\JWTServiceImpl.class
+com\imooc\ecommerce\entity\EcommerceUser.class
+com\imooc\ecommerce\service\IJWTService.class
