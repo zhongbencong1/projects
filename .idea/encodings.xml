@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/e-commerce-alibaba-nacos-client/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/e-commerce-authority-center/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/e-commerce-common/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/e-commerce-gateway/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/e-commerce-mvc-config/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/e-ecommerce-admin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-repository-design-pattern/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-admin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-alibaba-nacos-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-authority-center/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-mvc-config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project-repository-microservice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project-repository-microservice/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-repository-redis-lock/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-repository-socket/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />

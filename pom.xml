@@ -8,15 +8,11 @@
     <artifactId>project-repository</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>e-commerce-common</module>
-        <module>e-commerce-mvc-config</module>
-        <module>e-commerce-authority-center</module>
-        <module>e-commerce-alibaba-nacos-client</module>
-        <module>e-ecommerce-admin</module>
-        <module>e-commerce-gateway</module>
         <module>project-repository-socket</module>
         <module>project-repository-redis-lock</module>
         <module>project-repository-design-pattern</module>
+        <module>project-repository-microservice</module>
+        <module>project-repository-microservice</module>
     </modules>
 
     <packaging>pom</packaging>

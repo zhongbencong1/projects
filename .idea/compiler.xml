@@ -6,27 +6,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="project-repository-authority-center" />
         <module name="project-repository-socket" />
-        <module name="e-ecommerce-admin" />
-        <module name="e-commerce-authority-center" />
-        <module name="e-commerce-gateway" />
-        <module name="e-commerce-mvc-config" />
-        <module name="e-commerce-common" />
+        <module name="project-repository-gateway" />
+        <module name="project-repository-alibaba-nacos-client" />
         <module name="project-repository-design-pattern" />
         <module name="project-repository-redis-lock" />
-        <module name="e-commerce-alibaba-nacos-client" />
+        <module name="project-repository-common" />
+        <module name="project-repository-admin" />
+        <module name="project-repository-mvc-config" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="e-commerce-alibaba-nacos-client" options="-parameters" />
-      <module name="e-commerce-authority-center" options="-parameters" />
-      <module name="e-commerce-common" options="-parameters" />
-      <module name="e-commerce-gateway" options="-parameters" />
-      <module name="e-commerce-mvc-config" options="-parameters" />
-      <module name="e-ecommerce-admin" options="-parameters" />
+      <module name="project-repository-admin" options="-parameters" />
+      <module name="project-repository-alibaba-nacos-client" options="-parameters" />
+      <module name="project-repository-authority-center" options="-parameters" />
+      <module name="project-repository-common" options="-parameters" />
       <module name="project-repository-design-pattern" options="-parameters" />
+      <module name="project-repository-gateway" options="-parameters" />
+      <module name="project-repository-microservice" options="-parameters" />
+      <module name="project-repository-mvc-config" options="-parameters" />
       <module name="project-repository-redis-lock" options="-parameters" />
       <module name="project-repository-socket" options="-parameters" />
     </option>

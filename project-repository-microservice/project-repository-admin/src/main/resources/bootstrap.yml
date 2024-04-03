@@ -1,0 +1,36 @@
+server:
+  port: 7001
+  servlet:
+    context-path: /project-repository-admin
+
+spring:
+  application:
+    name: project-repository-admin
+  security:
+    user:
+      name: root
+      password: root
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 127.0.0.1:8848
+        namespace: b66ca5cc-f22a-4d85-a2f8-3a62923f026d
+        metadata:
+          management:
+            context-path: ${server.servlet.context-path}/actuator
+          user.name: root
+          user.password: rootroot
+  thymeleaf:
+    check-template: false
+    check-template-location: false
+
+# 暴露端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'  # 需要开放的端点。默认值只打开 health 和 info 两个端点。通过设置 *, 可以开放所有端点
+  endpoint:
+    health:
+      show-details: always
