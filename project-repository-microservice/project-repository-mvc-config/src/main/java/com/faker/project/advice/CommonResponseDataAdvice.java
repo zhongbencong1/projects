@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 /**
  * 基于响应体切面的统一响应
  */
-@RestControllerAdvice(value = "com.imooc.ecommerce")
+@RestControllerAdvice(value = "com.faker.project")
 @SuppressWarnings("all")
 public class CommonResponseDataAdvice implements ResponseBodyAdvice<Object> {
 

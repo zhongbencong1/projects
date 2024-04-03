@@ -1,11 +1,11 @@
 server:
   port: 7000
   servlet:
-    context-path: /ecommerce-authority-center
+    context-path: /project-repository-authority-center
 
 spring:
   application:
-    name: e-commerce-authority-center
+    name: project-repository-authority-center
   cloud:
     nacos:
       discovery:
