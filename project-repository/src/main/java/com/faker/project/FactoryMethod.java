@@ -12,8 +12,7 @@ public class FactoryMethod {
 
         // 对实际调用代码进行了一次封装 简化line 58 factoryA.abstractFactoryfunc().productFunc(); 的调用方式
         public void productFunc(){
-            Product product = this.abstractFactoryfunc();//在工厂类中直接调用生产产品方法
-            product.productFunc();
+            this.abstractFactoryfunc().productFunc();//在工厂类中直接调用生产产品方法
         }
     }
     
@@ -60,7 +59,7 @@ public class FactoryMethod {
         AbstractFactory factoryB = new CandyFactory();
         factoryB.abstractFactoryfunc().productFunc();
 
-        // 对应line 15-16 ，可以快速调用工厂方法生产对象的方法
+        // 对应line 15 ，可以快速调用工厂方法生产对象的方法
         // 相当于对factoryA.abstractFactoryfunc().productFunc();的封装
         new QiaokeliFactory().productFunc();
     }
