@@ -1,2 +1,0 @@
-GET http://localhost:8000/ecommerce-nacos-client/nacos-client/service_instance?service_id=e-commerce-nacos-client
-Accept: application/json

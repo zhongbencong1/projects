@@ -1,8 +1,0 @@
-### 获取token 登录
-POST http://localhost:7000/ecommerce-authority-center/authority/generate_token
-Content-Type: application/json
-
-{
-  "username": "",
-  "password": ""
-}
