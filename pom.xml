@@ -14,9 +14,9 @@
         <module>e-commerce-alibaba-nacos-client</module>
         <module>e-ecommerce-admin</module>
         <module>e-commerce-gateway</module>
-        <module>e-ecommerce-socket</module>
-        <module>e-ecommerce-redis-lock</module>
-        <module>project-repository</module>
+        <module>project-repository-socket</module>
+        <module>project-repository-redis-lock</module>
+        <module>project-repository-design-pattern</module>
     </modules>
 
     <packaging>pom</packaging>

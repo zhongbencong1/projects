@@ -6,14 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="project-repository-socket" />
         <module name="e-ecommerce-admin" />
         <module name="e-commerce-authority-center" />
         <module name="e-commerce-gateway" />
-        <module name="project-repository" />
         <module name="e-commerce-mvc-config" />
         <module name="e-commerce-common" />
-        <module name="e-ecommerce-socket" />
-        <module name="e-ecommerce-redis-lock" />
+        <module name="project-repository-design-pattern" />
+        <module name="project-repository-redis-lock" />
         <module name="e-commerce-alibaba-nacos-client" />
       </profile>
     </annotationProcessing>
@@ -26,9 +26,9 @@
       <module name="e-commerce-gateway" options="-parameters" />
       <module name="e-commerce-mvc-config" options="-parameters" />
       <module name="e-ecommerce-admin" options="-parameters" />
-      <module name="e-ecommerce-redis-lock" options="-parameters" />
-      <module name="e-ecommerce-socket" options="-parameters" />
-      <module name="project-repository" options="-parameters" />
+      <module name="project-repository-design-pattern" options="-parameters" />
+      <module name="project-repository-redis-lock" options="-parameters" />
+      <module name="project-repository-socket" options="-parameters" />
     </option>
   </component>
 </project>

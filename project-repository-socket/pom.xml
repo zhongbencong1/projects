@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>e-ecommerce-socket</artifactId>
+    <artifactId>project-repository-socket</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.alibaba</groupId>

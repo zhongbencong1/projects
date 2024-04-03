@@ -1,4 +1,4 @@
-package com.dk.client;
+package com.faker.client;
 
 import cn.hutool.json.JSONObject;
 

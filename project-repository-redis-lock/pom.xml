@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>e-ecommerce-redis-lock</artifactId>
+    <artifactId>project-repository-redis-lock</artifactId>
 
     <dependencies>
         <dependency>

@@ -1,4 +1,4 @@
-package com.redisson;
+package com.faker.project;
 
 import org.redisson.Redisson;
 import org.redisson.api.RBloomFilter;
