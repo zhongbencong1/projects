@@ -3,30 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>project-repository-microservice</artifactId>
+        <artifactId>project-repository-service</artifactId>
         <groupId>com.faker.project</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>project-repository-gateway</artifactId>
+    <artifactId>project-repository-account-service</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-
-    <!-- 模块名及描述信息 -->
-    <name>project-repository-gateway</name>
-    <description>Spring Cloud Gateway</description>
 
     <dependencies>
         <!-- spring cloud alibaba nacos discovery 依赖 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <version>2.2.3.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
         <!-- zipkin = spring-cloud-starter-sleuth + spring-cloud-sleuth-zipkin-->
         <dependency>
@@ -38,31 +29,41 @@
             <artifactId>spring-kafka</artifactId>
             <version>2.5.0.RELEASE</version>
         </dependency>
+        <!-- Java Persistence API, ORM 规范 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <!--下面坐标根据自己使用的SpringBoot版本二选一-->
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+        <!-- MySQL 驱动, 注意, 这个需要与 MySQL 版本对应 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.12</version>
+            <scope>runtime</scope>
+        </dependency>
         <dependency>
             <groupId>com.faker.project</groupId>
-            <artifactId>project-repository-common</artifactId>
+            <artifactId>project-repository-service-config</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- 集成 Sentinel, 在网关层面实现限流 -->
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
-        </dependency>
-        <!-- Sentinel 使用 Nacos 存储规则 -->
-        <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-datasource-nacos</artifactId>
+            <groupId>com.faker.project</groupId>
+            <artifactId>project-repository-service-sdk</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
     <!--
-        SpringBoot的Maven插件, 能够以Maven的方式为应用提供SpringBoot的支持，可以将
-        SpringBoot应用打包为可执行的jar或war文件, 然后以通常的方式运行SpringBoot应用
-     -->
+    SpringBoot的Maven插件, 能够以Maven的方式为应用提供SpringBoot的支持，可以将
+    SpringBoot应用打包为可执行的jar或war文件, 然后以通常的方式运行SpringBoot应用
+    -->
     <build>
         <finalName>${artifactId}</finalName>
         <plugins>
@@ -79,10 +80,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
 
 </project>

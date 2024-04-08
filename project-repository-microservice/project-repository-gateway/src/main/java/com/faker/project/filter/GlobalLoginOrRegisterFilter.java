@@ -1,12 +1,12 @@
 package com.faker.project.filter;
 
 import com.alibaba.fastjson.JSON;
-import com.imooc.ecommerce.constant.CommonConstant;
+import com.faker.project.constant.CommonConstant;
+import com.faker.project.util.TokenParseUtil;
+import com.faker.project.vo.JwtToken;
+import com.faker.project.vo.LoginUserInfo;
+import com.faker.project.vo.UserNameAndPassword;
 import com.faker.project.constant.GatewayConstant;
-import com.imooc.ecommerce.util.TokenParseUtil;
-import com.imooc.ecommerce.vo.JwtToken;
-import com.imooc.ecommerce.vo.LoginUserInfo;
-import com.imooc.ecommerce.vo.UserNameAndPassword;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;

@@ -1,6 +1,6 @@
 package com.faker.project.advice;
 
-import com.imooc.ecommerce.vo.CommonResponse;
+import com.faker.project.vo.CommonResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

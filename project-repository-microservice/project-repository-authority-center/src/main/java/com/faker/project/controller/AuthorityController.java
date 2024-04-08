@@ -2,8 +2,8 @@ package com.faker.project.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.faker.project.service.IJWTService;
-import com.imooc.ecommerce.vo.JwtToken;
-import com.imooc.ecommerce.vo.UserNameAndPassword;
+import com.faker.project.vo.JwtToken;
+import com.faker.project.vo.UserNameAndPassword;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

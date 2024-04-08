@@ -1,7 +1,7 @@
 package com.faker.project.advice;
 
 import com.faker.project.annotation.IgnoreResponseAdvice;
-import com.imooc.ecommerce.vo.CommonResponse;
+import com.faker.project.vo.CommonResponse;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;

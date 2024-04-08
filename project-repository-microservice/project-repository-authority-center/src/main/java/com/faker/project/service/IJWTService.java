@@ -2,7 +2,7 @@ package com.faker.project.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.faker.project.entity.EcommerceUser;
-import com.imooc.ecommerce.vo.UserNameAndPassword;
+import com.faker.project.vo.UserNameAndPassword;
 
 /**
  * jwt 相关服务接口定义

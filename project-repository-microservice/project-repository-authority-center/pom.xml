@@ -23,7 +23,7 @@
         <!-- Java Persistence API, ORM 规范 -->
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.5.1</version>
         </dependency>
         <!-- MySQL 驱动, 注意, 这个需要与 MySQL 版本对应 -->
@@ -58,11 +58,6 @@
             <groupId>cn.smallbun.screw</groupId>
             <artifactId>screw-core</artifactId>
             <version>1.0.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.5</version>
         </dependency>
     </dependencies>
 

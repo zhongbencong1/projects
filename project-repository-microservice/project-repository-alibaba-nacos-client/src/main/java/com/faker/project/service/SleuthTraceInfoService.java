@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 /**
- * <h1>使用代码更直观的看到 Sleuth 生成的相关跟踪信息</h1>
+ * 使用代码更直观的看到 Sleuth 生成的相关跟踪信息
  * */
 @Slf4j
 @Service
@@ -19,7 +19,7 @@ public class SleuthTraceInfoService {
     }
 
     /**
-     * <h2>打印当前的跟踪信息到日志中</h2>
+     * 打印当前的跟踪信息到日志中
      * */
     public void logCurrentTraceInfo() {
 

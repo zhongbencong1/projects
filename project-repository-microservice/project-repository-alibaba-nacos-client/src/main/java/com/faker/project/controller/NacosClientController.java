@@ -21,7 +21,7 @@ public class NacosClientController {
     }
 
     @GetMapping("/service_instance")
-    public List<ServiceInstance> getNacosClientInstancesByServiceId(@RequestParam(name = "service_id")String serviceId) {
+    public List<ServiceInstance> getNacosClientInstancesByServiceId(@RequestParam("service_id")String serviceId) {
         return nacosClientService.getNacosClientInfo(serviceId);
     }
 }
