@@ -54,9 +54,7 @@ public class ProjectRepositoryAddress {
     @TableField("update_time")
     private Date updateTime;
 
-    /**
-     * <h2>根据 userId + AddressItem 得到 EcommerceAddress</h2>
-     * */
+    /** 根据 userId + AddressItem 得到 ProjectRepositoryAddress */
     public static ProjectRepositoryAddress to(Long userId, AddressInfo.AddressItem addressItem) {
 
         ProjectRepositoryAddress ecommerceAddress = new ProjectRepositoryAddress();
@@ -71,9 +69,7 @@ public class ProjectRepositoryAddress {
         return ecommerceAddress;
     }
 
-    /**
-     * <h2>将 EcommerceAddress 对象转成 AddressInfo</h2>
-     * */
+    /** 将 ProjectRepositoryAddress 对象转成 AddressInfo */
     public AddressInfo.AddressItem toAddressItem() {
 
         AddressInfo.AddressItem addressItem = new AddressInfo.AddressItem();

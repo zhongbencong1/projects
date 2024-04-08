@@ -33,8 +33,8 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <!--下面坐标根据自己使用的SpringBoot版本二选一-->
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.1</version>
+            <artifactId>mybatis-plus</artifactId>
+            <version>3.5.4</version>
         </dependency>
         <!-- MySQL 驱动, 注意, 这个需要与 MySQL 版本对应 -->
         <dependency>
