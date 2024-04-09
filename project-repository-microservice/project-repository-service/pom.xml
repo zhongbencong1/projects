@@ -17,6 +17,7 @@
         <module>project-repository-service-config</module>
         <module>project-repository-account-service</module>
         <module>project-repository-service-sdk</module>
+        <module>project-repository-goods-service</module>
     </modules>
 
     <!-- 模块名及描述信息 -->

@@ -1,14 +1,12 @@
 package com.faker.project.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.faker.project.account.AddressInfo;
 import com.faker.project.common.TableId;
-import com.faker.project.entity.ProjectRepositoryAddress;
 
 /**
  * 用户地址相关服务接口定义
  * */
-public interface IAddressService extends IService<ProjectRepositoryAddress> {
+public interface IAddressService {
     /** 创建用户地址信息 */
     TableId createAddressInfo(AddressInfo addressInfo);
 

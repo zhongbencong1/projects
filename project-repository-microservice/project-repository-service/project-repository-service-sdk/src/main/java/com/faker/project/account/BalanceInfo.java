@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class BalanceInfo {
 
-    @ApiModelProperty(value = "用户主键 id")
+    @ApiModelProperty(value = "用户id")
     private Long userId;
 
     @ApiModelProperty(value = "用户账户余额")

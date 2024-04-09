@@ -12,11 +12,9 @@ import com.faker.project.service.IAddressService;
 import com.faker.project.vo.LoginUserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,9 +26,6 @@ import java.util.stream.Collectors;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class IAddressServiceImpl extends ServiceImpl<ProjectAddressMapper, ProjectRepositoryAddress> implements IAddressService {
-
-    @Autowired
-    private ProjectAddressMapper projectAddressMapper;
 
     @Override
     public TableId createAddressInfo(AddressInfo addressInfo) {
@@ -60,7 +55,7 @@ public class IAddressServiceImpl extends ServiceImpl<ProjectAddressMapper, Proje
         // 根据 userId 查询到用户的地址信息, 再实现转换
         LambdaQueryWrapper<ProjectRepositoryAddress> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(ProjectRepositoryAddress::getId, loginUserInfo.getId());
-        List<ProjectRepositoryAddress> projectRepositoryAddresses = projectAddressMapper.selectList(queryWrapper);
+        List<ProjectRepositoryAddress> projectRepositoryAddresses = this.list(queryWrapper);
         // 转换
         List<AddressInfo.AddressItem> addressItems = projectRepositoryAddresses.stream()
                 .map(ProjectRepositoryAddress::toAddressItem)
@@ -70,7 +65,7 @@ public class IAddressServiceImpl extends ServiceImpl<ProjectAddressMapper, Proje
 
     @Override
     public AddressInfo getAddressInfoById(Long id) {
-        ProjectRepositoryAddress projectRepositoryAddress = projectAddressMapper.selectById(id);
+        ProjectRepositoryAddress projectRepositoryAddress = this.getById(id);
         if (null == projectRepositoryAddress) {
             throw new RuntimeException("address is not exist");
         }
@@ -87,7 +82,7 @@ public class IAddressServiceImpl extends ServiceImpl<ProjectAddressMapper, Proje
 
         LambdaQueryWrapper<ProjectRepositoryAddress> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.in(ProjectRepositoryAddress::getId, ids);
-        List<ProjectRepositoryAddress> ecommerceAddresses = projectAddressMapper.selectList(queryWrapper);
+        List<ProjectRepositoryAddress> ecommerceAddresses = this.list(queryWrapper);
 
         if (CollectionUtils.isEmpty(ecommerceAddresses)) {
             return new AddressInfo(-1L, Collections.emptyList());

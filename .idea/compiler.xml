@@ -6,18 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="project-repository-gateway" />
+        <module name="project-repository-alibaba-nacos-client" />
+        <module name="project-repository-service-sdk" />
+        <module name="project-repository-goods-service" />
+        <module name="project-repository-mvc-config" />
         <module name="project-repository-authority-center" />
         <module name="project-repository-service-config" />
         <module name="project-repository-socket" />
-        <module name="project-repository-gateway" />
-        <module name="project-repository-alibaba-nacos-client" />
         <module name="project-repository-design-pattern" />
-        <module name="project-repository-service-sdk" />
         <module name="project-repository-redis-lock" />
         <module name="project-repository-common" />
         <module name="project-repository-account-service" />
         <module name="project-repository-admin" />
-        <module name="project-repository-mvc-config" />
       </profile>
     </annotationProcessing>
   </component>
@@ -30,6 +31,7 @@
       <module name="project-repository-common" options="-parameters" />
       <module name="project-repository-design-pattern" options="-parameters" />
       <module name="project-repository-gateway" options="-parameters" />
+      <module name="project-repository-goods-service" options="-parameters" />
       <module name="project-repository-microservice" options="-parameters" />
       <module name="project-repository-mvc-config" options="-parameters" />
       <module name="project-repository-redis-lock" options="-parameters" />
