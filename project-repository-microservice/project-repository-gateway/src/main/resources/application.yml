@@ -10,8 +10,8 @@ spring:
     nacos:
       discovery:
         enabled: true # 如果不想使用 Nacos 进行服务注册和发现, 设置为 false 即可
-        server-addr: ${nacosEndpoint} # Nacos 服务器地址
-        namespace:
+        server-addr: 127.0.0.1:8848 # Nacos 服务器地址
+        namespace: b66ca5cc-f22a-4d85-a2f8-3a62923f026d
 #        metadata:
 #          management:
 #            context-path: ${server.servlet.context-path}/actuator
@@ -22,24 +22,24 @@ spring:
   #          uri: 127.0.0.1:8080/user/{id} # 匹配后路由地址
   #          predicates: # 断言, 路径相匹配的进行路由
   #            - Path=/user/{id}
-  kafka:
-    bootstrap-servers: 127.0.0.1:9092
-    producer:
-      retries: 3
-    consumer:
-      auto-offset-reset: latest
-  zipkin:
-    sender:
-      type: kafka # 默认是 web
-    base-url: http://localhost:9411/
+#  kafka:
+#    bootstrap-servers: 127.0.0.1:9092
+#    producer:
+#      retries: 3
+#    consumer:
+#      auto-offset-reset: latest
+#  zipkin:
+#    sender:
+#      type: kafka # 默认是 web
+#    base-url: http://localhost:9411/
 
 # 这个地方独立配置, 是网关的数据, 代码 GatewayConfig.java 中读取被监听
 nacos:
   gateway:
     route:
       config:
-        data-id: e-commerce-gateway-router
-        group: e-commerce
+        data-id: project-repository-gateway-router
+        group: project-repository
 
 # 暴露端点
 management:

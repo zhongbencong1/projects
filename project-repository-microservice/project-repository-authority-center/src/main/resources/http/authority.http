@@ -1,8 +1,18 @@
 ### 获取token 登录
-POST http://localhost:7000/ecommerce-authority-center/authority/generate_token
+POST http://localhost:7000/project-repository-authority-center/authority/generate_token
 Content-Type: application/json
 
 {
-  "username": "",
-  "password": ""
+  "username": "faker",
+  "password": "25d55ad283aa400af464c76d713c07ad"
+}
+
+
+### 注册用户并返回 Token -- 注册功能实现
+POST http://127.0.0.1:7000/project-repository-authority-center/authority/register_token
+Content-Type: application/json
+
+{
+  "username": "faker2",
+  "password": "25d55ad283aa400af464c76d713c07ad"
 }

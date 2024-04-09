@@ -12,7 +12,6 @@
         <module>project-repository-redis-lock</module>
         <module>project-repository-design-pattern</module>
         <module>project-repository-microservice</module>
-        <module>project-repository-microservice</module>
     </modules>
 
     <packaging>pom</packaging>

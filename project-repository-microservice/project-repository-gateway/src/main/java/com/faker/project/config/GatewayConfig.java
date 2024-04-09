@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class GatewayConfig {
 
     /** 读取配置的超时时间 */
-    public static final long DEFAULT_TIMEOUT = 30000;
+    public static final long DEFAULT_TIMEOUT = 20000;
 
     /** Nacos 服务器地址 */
     public static String NACOS_SERVER_ADDR;

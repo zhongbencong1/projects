@@ -42,11 +42,8 @@ public class DynamicRouteServiceImpl implements ApplicationEventPublisherAware {
         this.publisher = applicationEventPublisher;
     }
 
-    /**
-     * <h2>增加路由定义</h2>
-     * */
+    /** 增加路由定义 */
     public String addRouteDefinition(RouteDefinition definition) {
-
         log.info("gateway add route: [{}]", definition);
 
         // 保存路由配置并发布
@@ -57,9 +54,7 @@ public class DynamicRouteServiceImpl implements ApplicationEventPublisherAware {
         return "success";
     }
 
-    /**
-     * <h2>更新路由</h2>
-     * */
+    /** 更新路由 */
     public String updateList(List<RouteDefinition> definitions) {
 
         log.info("gateway update route: [{}]", definitions);
@@ -80,11 +75,8 @@ public class DynamicRouteServiceImpl implements ApplicationEventPublisherAware {
         return "success";
     }
 
-    /**
-     * <h2>根据路由 id 删除路由配置</h2>
-     * */
+    /** 根据路由 id 删除路由配置 */
     private String deleteById(String id) {
-
         try {
             log.info("gateway delete route id: [{}]", id);
             this.routeDefinitionWriter.delete(Mono.just(id)).subscribe();
@@ -97,10 +89,7 @@ public class DynamicRouteServiceImpl implements ApplicationEventPublisherAware {
         }
     }
 
-    /**
-     * <h2>更新路由</h2>
-     * 更新的实现策略比较简单: 删除 + 新增 = 更新
-     * */
+    /** 更新路由  更新的实现策略比较简单: 删除 + 新增 = 更新 */
     private String updateByRouteDefinition(RouteDefinition definition) {
 
         try {
