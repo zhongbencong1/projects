@@ -12,16 +12,16 @@ spring:
         enabled: true # 如果不想使用 Nacos 进行服务注册和发现, 设置为 false 即可
         server-addr: 127.0.0.1:8848 # Nacos 服务器地址
         # server-addr: 127.0.0.1:8848,127.0.0.1:8849,127.0.0.1:8850 # Nacos 服务器地址
-        namespace: 1bc13fd5-843b-4ac0-aa55-695c25bc0ac6
+        namespace: b66ca5cc-f22a-4d85-a2f8-3a62923f026d
         metadata:
           management:
             context-path: ${server.servlet.context-path}/actuator
   datasource:
     # 数据源
-    url: jdbc:mysql://127.0.0.1:3306/imooc_e_commerce?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/project_repository?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
     username: root
     password: rootroot
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 # 暴露端点
 management:

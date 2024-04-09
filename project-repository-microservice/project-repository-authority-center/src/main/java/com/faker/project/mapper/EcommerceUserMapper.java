@@ -1,9 +1,9 @@
 package com.faker.project.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.faker.project.entity.EcommerceUser;
-import org.springframework.stereotype.Repository;
+import com.faker.project.entity.RepositoryUser;
+import org.apache.ibatis.annotations.Mapper;
 
-@Repository
-public interface EcommerceUserMapper extends BaseMapper<EcommerceUser> {
+@Mapper
+public interface EcommerceUserMapper extends BaseMapper<RepositoryUser> {
 }

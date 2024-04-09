@@ -1,13 +1,13 @@
 package com.faker.project.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.faker.project.entity.EcommerceUser;
+import com.faker.project.entity.RepositoryUser;
 import com.faker.project.vo.UserNameAndPassword;
 
 /**
  * jwt 相关服务接口定义
  */
-public interface IJWTService extends IService<EcommerceUser> {
+public interface IJWTService extends IService<RepositoryUser> {
 
     String generateToken(String username, String password) throws Exception;
 

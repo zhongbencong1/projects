@@ -14,13 +14,13 @@ spring:
     nacos:
       discovery:
         enabled: true
-        server-addr: 127.0.0.1:8848
-        namespace: b66ca5cc-f22a-4d85-a2f8-3a62923f026d
+        server-addr: ${nacosEndpoint}
+        namespace: ${projectNamespace}
         metadata:
           management:
             context-path: ${server.servlet.context-path}/actuator
           user.name: root
-          user.password: rootroot
+          user.password: root
   thymeleaf:
     check-template: false
     check-template-location: false

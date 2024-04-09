@@ -1,8 +1,6 @@
 package com.faker.project.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,10 +16,10 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain=true)
-@TableName(value = "t_ecommerce_user")
-public class EcommerceUser implements Serializable {
+@TableName(value = "repository_user")
+public class RepositoryUser implements Serializable {
 
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     @TableField("username")
@@ -34,9 +32,9 @@ public class EcommerceUser implements Serializable {
     @TableField("extra_info")
     private String extraInfo;
 
-    @TableField("create_time")
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
     private Date createTime;
 
-    @TableField("update_time")
+    @TableField(value = "update_time", fill = FieldFill.UPDATE)
     private Date updateTime;
 }

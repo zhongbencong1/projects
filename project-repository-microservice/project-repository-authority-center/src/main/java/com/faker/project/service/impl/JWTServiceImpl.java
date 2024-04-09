@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.faker.project.constant.CommonConstant;
-import com.faker.project.entity.EcommerceUser;
+import com.faker.project.entity.RepositoryUser;
 import com.faker.project.constant.AuthorityConstant;
 import com.faker.project.mapper.EcommerceUserMapper;
 import com.faker.project.service.IJWTService;
@@ -31,7 +31,7 @@ import java.util.UUID;
 @Slf4j
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class JWTServiceImpl extends ServiceImpl<EcommerceUserMapper, EcommerceUser> implements IJWTService {
+public class JWTServiceImpl extends ServiceImpl<EcommerceUserMapper, RepositoryUser> implements IJWTService {
 
     private final EcommerceUserMapper ecommerceUserMapper;
 
@@ -48,17 +48,17 @@ public class JWTServiceImpl extends ServiceImpl<EcommerceUserMapper, EcommerceUs
         if (expire <= 0) {
             expire = AuthorityConstant.DEFAULT_EXPIRE_DAY;
         }
-        LambdaQueryWrapper<EcommerceUser> lqw = new LambdaQueryWrapper<>();
-        lqw.eq(EcommerceUser::getUsername, username);
-        lqw.eq(EcommerceUser::getPassword, password);
-        EcommerceUser ecommerceUser = ecommerceUserMapper.selectOne(lqw);
+        LambdaQueryWrapper<RepositoryUser> lqw = new LambdaQueryWrapper<>();
+        lqw.eq(RepositoryUser::getUsername, username);
+        lqw.eq(RepositoryUser::getPassword, password);
+        RepositoryUser repositoryUser = ecommerceUserMapper.selectOne(lqw);
 
-        if (null == ecommerceUser) {
+        if (null == repositoryUser) {
             log.error("can not find user: [{}], [{}]", username, password);
             return null;
         }
         // Token 中塞入对象, 即 JWT 中存储的信息, 后端拿到这些信息就可以知道是哪个用户在操作
-        LoginUserInfo loginUserInfo = new LoginUserInfo(ecommerceUser.getId(), ecommerceUser.getUsername());
+        LoginUserInfo loginUserInfo = new LoginUserInfo(repositoryUser.getId(), repositoryUser.getUsername());
 
 
         // 计算超时时间
@@ -82,14 +82,14 @@ public class JWTServiceImpl extends ServiceImpl<EcommerceUserMapper, EcommerceUs
      */
     @Override
     public String registerUserAndGenerateToken(UserNameAndPassword up) throws Exception {
-        LambdaQueryWrapper<EcommerceUser> qw = new LambdaQueryWrapper<>();
-        qw.eq(EcommerceUser::getUsername, up.getUsername());
-        EcommerceUser byUsername = ecommerceUserMapper.selectOne(qw);
+        LambdaQueryWrapper<RepositoryUser> qw = new LambdaQueryWrapper<>();
+        qw.eq(RepositoryUser::getUsername, up.getUsername());
+        RepositoryUser byUsername = ecommerceUserMapper.selectOne(qw);
         if (Objects.nonNull(byUsername)) {
             return null;
         }
 
-        EcommerceUser eu = new EcommerceUser();
+        RepositoryUser eu = new RepositoryUser();
         eu.setUsername(up.getUsername()).setPassword(up.getPassword());
 
         int insert = ecommerceUserMapper.insert(eu);

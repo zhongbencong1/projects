@@ -10,7 +10,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * 授权中心启动入口
  */
 @EnableDiscoveryClient
-@MapperScan("com.imooc.ecommerce.mapper")
+//@MapperScan("com.faker.project.mapper")
 @SpringBootApplication
 public class AuthorityCenterApplication {
 

@@ -1,7 +1,7 @@
 server:
   port: 8000
   servlet:
-    context-path: /project-repository-client
+    context-path: /project-repository-nacos-client
 
 spring:
   application:
@@ -11,9 +11,9 @@ spring:
       # 服务注册发现
       discovery:
         enabled: true # 如果不想使用 Nacos 进行服务注册和发现, 设置为 false 即可
-        server-addr: 127.0.0.1:8848
+        server-addr: ${nacosEndpoint}
         # server-addr: 127.0.0.1:8848,127.0.0.1:8849,127.0.0.1:8850 # Nacos 服务器地址
-        namespace: b66ca5cc-f22a-4d85-a2f8-3a62923f026d
+        namespace: ${projectNamespace}
         metadata:
           management:
             context-path: ${server.servlet.context-path}/actuator
