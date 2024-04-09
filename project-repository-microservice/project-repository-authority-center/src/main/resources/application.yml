@@ -22,6 +22,10 @@ spring:
     username: root
     password: rootroot
     driver-class-name: com.mysql.cj.jdbc.Driver
+# 打印mybatis执行的sql语句
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 # 暴露端点
 management:

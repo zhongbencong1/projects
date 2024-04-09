@@ -32,9 +32,10 @@ public class RepositoryUser implements Serializable {
     @TableField("extra_info")
     private String extraInfo;
 
-    @TableField(value = "create_time", fill = FieldFill.INSERT)
-    private Date createTime;
+    // 与MyMetaObjectHandler类 实现自动填充 创建时间create_time 和 修改时间update_time
+    @TableField(value = "create_time", fill = FieldFill.INSERT_UPDATE)
+    private Long createTime;
 
-    @TableField(value = "update_time", fill = FieldFill.UPDATE)
-    private Date updateTime;
+    @TableField(value = "update_time", fill = FieldFill.INSERT)
+    private Long updateTime;
 }

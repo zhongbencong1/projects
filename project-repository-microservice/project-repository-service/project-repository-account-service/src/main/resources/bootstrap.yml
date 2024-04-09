@@ -44,7 +44,7 @@ spring:
       connection-timeout: 30000
       max-lifetime: 45000
       auto-commit: true
-      pool-name: ImoocEcommerceHikariCP
+      pool-name: EcommerceHikariCP
 
 # 暴露端点
 management:

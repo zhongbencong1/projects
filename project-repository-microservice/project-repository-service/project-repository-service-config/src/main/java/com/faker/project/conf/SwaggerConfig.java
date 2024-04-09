@@ -42,7 +42,7 @@ public class SwaggerConfig {
                 .title("micro-service")
                 .description("springcloud-service")
                 .contact(new Contact(
-                        "Qinyi", "www.imooc.com", "Qinyi@imooc.com"
+                        "pdai", "https://www.pdai.tech/md/resource/tools.html", "tofaker@163.com"
                 ))
                 .version("1.0")
                 .build();

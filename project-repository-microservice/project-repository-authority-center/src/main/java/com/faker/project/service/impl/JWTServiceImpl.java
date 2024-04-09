@@ -1,12 +1,13 @@
 package com.faker.project.service.impl;
 
+import cn.hutool.crypto.digest.MD5;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.faker.project.constant.CommonConstant;
 import com.faker.project.entity.RepositoryUser;
 import com.faker.project.constant.AuthorityConstant;
-import com.faker.project.mapper.EcommerceUserMapper;
+import com.faker.project.mapper.RepositoryUserMapper;
 import com.faker.project.service.IJWTService;
 import com.faker.project.vo.LoginUserInfo;
 import com.faker.project.vo.UserNameAndPassword;
@@ -31,13 +32,8 @@ import java.util.UUID;
 @Slf4j
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class JWTServiceImpl extends ServiceImpl<EcommerceUserMapper, RepositoryUser> implements IJWTService {
+public class JWTServiceImpl extends ServiceImpl<RepositoryUserMapper, RepositoryUser> implements IJWTService {
 
-    private final EcommerceUserMapper ecommerceUserMapper;
-
-    public JWTServiceImpl(EcommerceUserMapper ecommerceUserMapper) {
-        this.ecommerceUserMapper = ecommerceUserMapper;
-    }
     @Override
     public String generateToken(String username, String password) throws Exception {
         return generateToken(username, password, 0);
@@ -51,7 +47,7 @@ public class JWTServiceImpl extends ServiceImpl<EcommerceUserMapper, RepositoryU
         LambdaQueryWrapper<RepositoryUser> lqw = new LambdaQueryWrapper<>();
         lqw.eq(RepositoryUser::getUsername, username);
         lqw.eq(RepositoryUser::getPassword, password);
-        RepositoryUser repositoryUser = ecommerceUserMapper.selectOne(lqw);
+        RepositoryUser repositoryUser = this.getOne(lqw);
 
         if (null == repositoryUser) {
             log.error("can not find user: [{}], [{}]", username, password);
@@ -59,7 +55,6 @@ public class JWTServiceImpl extends ServiceImpl<EcommerceUserMapper, RepositoryU
         }
         // Token 中塞入对象, 即 JWT 中存储的信息, 后端拿到这些信息就可以知道是哪个用户在操作
         LoginUserInfo loginUserInfo = new LoginUserInfo(repositoryUser.getId(), repositoryUser.getUsername());
-
 
         // 计算超时时间
         ZonedDateTime zdt = LocalDate.now().plus(expire, ChronoUnit.DAYS).atStartOfDay(ZoneId.systemDefault());
@@ -84,23 +79,23 @@ public class JWTServiceImpl extends ServiceImpl<EcommerceUserMapper, RepositoryU
     public String registerUserAndGenerateToken(UserNameAndPassword up) throws Exception {
         LambdaQueryWrapper<RepositoryUser> qw = new LambdaQueryWrapper<>();
         qw.eq(RepositoryUser::getUsername, up.getUsername());
-        RepositoryUser byUsername = ecommerceUserMapper.selectOne(qw);
+        RepositoryUser byUsername = this.getOne(qw);
         if (Objects.nonNull(byUsername)) {
+            log.error("username is registered: [{}]", byUsername);
             return null;
         }
-
+        // 存储
         RepositoryUser eu = new RepositoryUser();
-        eu.setUsername(up.getUsername()).setPassword(up.getPassword());
+        eu.setUsername(up.getUsername());
+        eu.setPassword(MD5.create().digestHex(up.getPassword()));
+        boolean saveResult = this.save(eu);
 
-        int insert = ecommerceUserMapper.insert(eu);
-        log.info("register user: [{}], [{}], result is {}", eu.getUsername(), eu.getId(), insert);
-
+        log.info("register user: [{}], [{}], result is {}", eu.getUsername(), eu.getId(), saveResult);
         return generateToken(eu.getUsername(), eu.getPassword());
-
     }
 
     /**
-     * <h2>根据本地存储的私钥获取到 PrivateKey 对象</h2>
+     * 根据本地存储的私钥获取到 PrivateKey 对象
      * */
     private PrivateKey getPrivateKey() throws Exception {
 

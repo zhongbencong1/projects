@@ -5,5 +5,5 @@ import com.faker.project.entity.RepositoryUser;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface EcommerceUserMapper extends BaseMapper<RepositoryUser> {
+public interface RepositoryUserMapper extends BaseMapper<RepositoryUser> {
 }
