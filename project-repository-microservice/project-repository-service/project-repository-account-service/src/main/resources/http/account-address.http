@@ -7,7 +7,7 @@ e-commerce-user: eyJhbGciOiJSUzI1NiJ9.eyJlLWNvbW1lcmNlLXVzZXIiOiJ7XCJpZFwiOjEwLF
   "userId": 10,
   "addressItems": [
     {
-      "username": "Qinyi_Imooc",
+      "username": "faker",
       "phone": "17789998998",
       "province": "上海市",
       "city": "上海市",
