@@ -8,16 +8,15 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 /**
- * <h1>HTTP 请求头部携带 Token 验证过滤器</h1>
+ * HTTP 请求头部携带 Token 验证过滤器
  * */
 public class HeaderTokenGatewayFilter implements GatewayFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-
-        // 从 HTTP Header 中寻找 key 为 token, value 为 imooc 的键值对
+        // 从 HTTP Header 中寻找 key 为 token, value 为 repository 的键值对
         String name = exchange.getRequest().getHeaders().getFirst("token");
-        if ("imooc".equals(name)) {
+        if ("repository".equalsIgnoreCase(name)) {
             return chain.filter(exchange);
         }
 

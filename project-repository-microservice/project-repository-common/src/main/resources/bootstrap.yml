@@ -1,0 +1,7 @@
+# 公共配置，放置于common模块，其他模块依赖common模块后通过 ${} 可以取值
+nacosEndpoint: 127.0.0.1:8848
+projectNamespace: b66ca5cc-f22a-4d85-a2f8-3a62923f026d
+jdbcConnectInfo: jdbc:mysql://127.0.0.1:3306/project_repository?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+jdbcUserName: root
+jdbcUserPsw: rootroot
+jdbcDriverClass: com.mysql.cj.jdbc.Driver

@@ -28,8 +28,8 @@ public class GlobalCacheRequestBodyFilter implements GlobalFilter{
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         // 没有请求头或非授权接口 放行该过滤器
-        boolean isloginOrRegister = exchange.getRequest().getURI().getPath().contains(GatewayConstant.LOGIN_URI)
-                || exchange.getRequest().getURI().getPath().contains(GatewayConstant.REGISTER_URI);
+        String path = exchange.getRequest().getURI().getPath();
+        boolean isloginOrRegister = path.contains(GatewayConstant.LOGIN_URI) || path.contains(GatewayConstant.REGISTER_URI);
         if (null == exchange.getRequest().getHeaders().getContentType() || !isloginOrRegister) {
             return chain.filter(exchange);
         }

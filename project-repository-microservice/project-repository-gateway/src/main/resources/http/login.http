@@ -1,14 +1,14 @@
 ### 登录
-POST 127.0.0.1:9001/repository/e-commerce/login
+POST 127.0.0.1:9001/repository/project-repository/login
 Content-Type: application/json
 
 {
-  "username": "Qinyi@imooc.com",
+  "username": "faker",
   "password": "25d55ad283aa400af464c76d713c07ad"
 }
 
 ###1
-POST 127.0.0.1:9001/repository/e-commerce/register
+POST 127.0.0.1:9001/repository/project-repository/register
 Content-Type: application/json
 
 {

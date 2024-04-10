@@ -1,6 +1,0 @@
-nacosEndpoint: 127.0.0.1:8848
-projectNamespace: b66ca5cc-f22a-4d85-a2f8-3a62923f026d
-jdbcConnectInfo: jdbc:mysql://127.0.0.1:3306/project_repository?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
-jdbcUserName: root
-jdbcUserPsw: rootroot
-jdbcDriverClass: com.mysql.cj.jdbc.Driver

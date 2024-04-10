@@ -1,6 +1,7 @@
 package com.faker.project.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.faker.project.annotation.IgnoreResponseAdvice;
 import com.faker.project.service.IJWTService;
 import com.faker.project.vo.JwtToken;
 import com.faker.project.vo.UserNameAndPassword;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
+@IgnoreResponseAdvice
 @RequestMapping(value = "/authority")
 public class AuthorityController {
 
