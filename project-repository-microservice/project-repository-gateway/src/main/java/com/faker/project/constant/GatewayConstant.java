@@ -13,9 +13,9 @@ public interface GatewayConstant {
 
     /** 去授权中心拿到登录 token 的 uri 格式化接口 */
     String AUTHORITY_CENTER_TOKEN_URL_FORMAT =
-            "http://%s:%s/project-repository-authority-center/authority/token";
+            "http://%s:%s/project-repository-authority-center/authority/generate_token";
 
     /** 去授权中心注册并拿到 token 的 uri 格式化接口 */
     String AUTHORITY_CENTER_REGISTER_URL_FORMAT =
-            "http://%s:%s/project-repository-authority-center/authority/register";
+            "http://%s:%s/project-repository-authority-center/authority/register_token";
 }

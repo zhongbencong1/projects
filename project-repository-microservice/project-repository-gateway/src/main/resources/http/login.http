@@ -7,11 +7,11 @@ Content-Type: application/json
   "password": "25d55ad283aa400af464c76d713c07ad"
 }
 
-###1
+### 注册
 POST 127.0.0.1:9001/repository/project-repository/register
 Content-Type: application/json
 
 {
-  "username": "ImoocQinyi@imooc.com",
+  "username": "faker3",
   "password": "25d55ad283aa400af464c76d713c07ad"
 }
