@@ -19,9 +19,7 @@ public class SamplerConfig {
         return RateLimitingSampler.create(100);
     }
 
-//    /**
-//     * 概率采集, 默认的采样策略, 默认值是 0.1 (10%的请求被采样)
-//     * */
+//    /** 概率采集, 默认的采样策略, 默认值是 0.1 (10%的请求被采样) */
 //    @Bean
 //    public Sampler defaultSampler() {
 //        return ProbabilityBasedSampler.create(0.1f);

@@ -18,11 +18,8 @@ public class SleuthTraceInfoService {
         this.tracer = tracer;
     }
 
-    /**
-     * 打印当前的跟踪信息到日志中
-     * */
+    /** 打印当前的跟踪信息到日志中 */
     public void logCurrentTraceInfo() {
-
         log.info("Sleuth trace id: [{}]", tracer.currentSpan().context().traceId());
         log.info("Sleuth span id: [{}]", tracer.currentSpan().context().spanId());
     }

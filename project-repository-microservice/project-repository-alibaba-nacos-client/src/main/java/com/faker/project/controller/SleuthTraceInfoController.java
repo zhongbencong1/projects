@@ -20,9 +20,7 @@ public class SleuthTraceInfoController {
         this.traceInfoService = traceInfoService;
     }
 
-    /**
-     * 打印日志跟踪信息
-     * */
+    /** 打印日志跟踪信息 */
     @GetMapping("/trace-info")
     public void logCurrentTraceInfo() {
         traceInfoService.logCurrentTraceInfo();

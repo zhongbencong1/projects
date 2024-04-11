@@ -1,13 +1,13 @@
 ### 查询服务实例信息
-GET http://127.0.0.1:8000/ecommerce-nacos-client/nacos-client/service-instance
+GET http://127.0.0.1:8000/repository/project-repository-nacos-client/nacos-client/service-instance
 Accept: application/json
 
 ### 动态从 Nacos Server 中获取配置信息
-GET http://127.0.0.1:8000/ecommerce-nacos-client/nacos-client/project-config
+GET http://127.0.0.1:8000/repository/project-repository-nacos-client/nacos-client/project-config
 Accept: application/json
 
 ### 查看 Sleuth 跟踪信息
-GET http://127.0.0.1:9001/repository/ecommerce-nacos-client/sleuth/trace-info
+GET http://127.0.0.1:9001/repository/project-repository-nacos-client/sleuth/trace-info
 Accept: application/json
-e-commerce-user: eyJhbGciOiJSUzI1NiJ9.eyJlLWNvbW1lcmNlLXVzZXIiOiJ7XCJpZFwiOjE3LFwidXNlcm5hbWVcIjpcIkltb29jUWlueWlAaW1vb2MuY29tXCJ9IiwianRpIjoiMGIxNzQyYWItMWU3OC00OTZjLWIyNTAtMjNkZGQ1ZGEyZTU1IiwiZXhwIjoxNjI0MjA0ODAwfQ.QKGHzohSHdYDHzUVHpe9gNPUgzfkPwrSbB-WiMWYjLlt2tr9BufzZM8bSt-whb_bd0hKoC6rkYYO0WUVR67uSML-2yaTL1xMIn8GH9Flyig3rpO4vefL3Hp2TXIpwHHa7WlKsLzcUpNk9lxWs2B5k0ICdYCH_jD5Tx6N7CzfSUG9u4fOnVeM9UFE2nX_DURupUh_DKCc2oOoMeyCSR7Ma8-Ab4WQU3r-U0YivR8G1A0kmKOIoTeRhM3LcPuxUPh3rCbrjzMg--fexRGw0O38Qsby6pz-ku2IlTyFXY6_jNOG1BZR34-jBOnaIciP1TExw9bFumeuC2GcowTHJVH1Nw
-token: repository-user
+repository-user: eyJhbGciOiJSUzI1NiJ9.eyJyZXBvc2l0b3J5LXVzZXIiOiJ7XCJpZFwiOjMwLFwibmFtZVwiOlwiZmFrZXJcIn0iLCJqdGkiOiI4NjhiOGY0OC04ODNlLTQyNWQtYWRkNy1lZGZhYWE3NmY3ODIiLCJleHAiOjE3MTI4NTEyMDB9.D78mmG9wImunV7fGknAPk4YHUvDOxvYSZ8amCl3zknuURAA2Q-9u3lgSo_KEle416dvTi7Rsam5sN37FBRUm8Wav6kLv0snEzXpQa0xWmGzbaFoKCP9sEQ9WSkWhX7jfx6lJT3EULWND2Kt2CEGHVTKvg7_cwkiWhV97Z6XmDlQMiKhNbkQ3esso-h6evShWSRNxMOaX6RWshrTuiOTUaeeZzpdd1CSof_u9idUX8jdBgWMv1B4GH-d4QBxix7thRFmecWZKjoxowuUiQJ_wjzqoMDjjBDTzU_RlNeyEebiPYlXi0FWhm2W4rw7DjwxTfpzbYC5LRiRb7L-h-xPkWg
+token: repository

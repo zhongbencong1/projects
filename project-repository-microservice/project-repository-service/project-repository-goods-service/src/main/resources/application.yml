@@ -32,19 +32,19 @@ spring:
   datasource:
     # 数据源
     url: ${jdbcConnectInfo}
-    username: root
-    password: root
+    username: ${jdbcUserName}
+    password: ${jdbcUserPsw}
+    driver-class-name: ${jdbcDriverClass}
     type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
     # 连接池
-    hikari:
-      maximum-pool-size: 8
-      minimum-idle: 4
-      idle-timeout: 30000
-      connection-timeout: 30000
-      max-lifetime: 45000
-      auto-commit: true
-      pool-name: CouponHikariCP
+#    hikari:
+#      maximum-pool-size: 8
+#      minimum-idle: 4
+#      idle-timeout: 30000
+#      connection-timeout: 30000
+#      max-lifetime: 45000
+#      auto-commit: true
+#      pool-name: CouponHikariCP
   redis:
     database: 0
     host: 127.0.0.1
