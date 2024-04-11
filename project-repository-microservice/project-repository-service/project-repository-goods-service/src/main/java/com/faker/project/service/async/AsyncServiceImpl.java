@@ -115,9 +115,9 @@ public class AsyncServiceImpl implements IAsyncService {
      * */
     private void saveNewGoodsInfoToRedis(List<RepositoryGoods> savedGoods) {
         // 由于 Redis 是内存存储, 只存储简单商品信息
-        Map<Long, String> id2JsonObject = savedGoods.stream()
+        Map<String, String> id2JsonObject = savedGoods.stream()
                 .map(RepositoryGoods::goodsToSimple)
-                .collect(Collectors.toMap(SimpleGoodsInfo::getId, JSON::toJSONString));
+                .collect(Collectors.toMap(s -> s.getId().toString(), JSON::toJSONString));
 
         // 保存到 Redis 中, ECOMMERCE_GOODS_DICT_KEY为第一层区分: 多个项目共同使用同一个redis时, 各自存各自的key
         redisTemplate.opsForHash().putAll(GoodsConstant.ECOMMERCE_GOODS_DICT_KEY, id2JsonObject);
