@@ -15,16 +15,13 @@ import com.faker.project.service.IGoodsService;
 import com.faker.project.vo.PageSimpleGoodsInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.collections4.IterableUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -135,7 +132,42 @@ public class IGoodsServiceImpl extends ServiceImpl<GoodsServiceMapper, Repositor
 
     @Override
     public Boolean deductGoodsInventory(List<DeductGoodsInventory> deductGoodsInventories) {
-        return null;
+        // 检验参数
+        deductGoodsInventories.forEach(d -> {
+            if (d.getCount() <= 0) {
+                throw new RuntimeException("purchase goods count need > 0");
+            }
+        });
+
+        // 根据id查询库存信息
+        List<RepositoryGoods> goodsList = this.listByIds(deductGoodsInventories.stream()
+                .map(DeductGoodsInventory::getGoodsId).collect(Collectors.toSet()));
+
+        // 异常处理: 查询不到商品对象 或 查询出来的商品数量与传递的不一致, 抛异常
+        if (CollectionUtils.isEmpty(goodsList) || goodsList.size() != deductGoodsInventories.size()) {
+            log.error("request is not valid, param is [{}], goodsList size is [{}]", deductGoodsInventories.size(), goodsList.size());
+            throw new RuntimeException("request param is not valid");
+        }
+
+        // 检查是不是可以扣减库存, 再去扣减库存,  goodsId2Inventory转化为 map(id, DeductGoodsInventory)提高效率
+        Map<String, DeductGoodsInventory> goodsId2Inventory = deductGoodsInventories.stream()
+                .collect(Collectors.toMap(s -> s.getGoodsId().toString(), Function.identity()));
+        goodsList.forEach(g -> {
+            Long currentInventory = g.getInventory();
+            Integer needDeductInventory = goodsId2Inventory.get(g.getId().toString()).getCount();
+            if (currentInventory < needDeductInventory) {
+                log.error("goods inventory is not enough: [{}] [{}], [{}]", g.getId(), currentInventory, needDeductInventory);
+                throw new RuntimeException("goods inventory is not enough, goods id is: [{}]" + g.getId());
+            }
+            // 扣减库存
+            g.setInventory(currentInventory - needDeductInventory);
+            log.info("deduct goods inventory: [{}], [{}], [{}]", g.getId(), currentInventory, g.getInventory());
+        });
+
+        // 更新扣减过库存的所有数据
+        boolean result = this.saveBatch(goodsList);
+        log.info("deduct goods inventory done");
+        return result;
     }
 
     /** 在表中查出是否有相同信息的商品 */
