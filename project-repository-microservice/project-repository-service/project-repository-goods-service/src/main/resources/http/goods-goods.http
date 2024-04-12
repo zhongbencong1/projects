@@ -1,0 +1,57 @@
+### 根据 TableId 查询详细商品信息
+POST http://127.0.0.1:9001/repository/project-repository-goods-service/goods/goods-info
+Content-Type: application/json
+repository-user: eyJhbGciOiJSUzI1NiJ9.eyJyZXBvc2l0b3J5LXVzZXIiOiJ7XCJpZFwiOjMwLFwibmFtZVwiOlwiZmFrZXJcIn0iLCJqdGkiOiIzYWJhMzA3MS1hODhkLTRjYzUtODg3My1mYjg3YmViZGFiYzQiLCJleHAiOjE3MTI5Mzc2MDB9.iaKI0lvdbfls0PlkfwA2UdxZSzo7CQRdeIQbHvo3hZ0cOm8Z1qmIRF2Adpr3VfPJ0TnkrH-ZRGjPNmUeSFDlA-swAMWeJJeG-cRPiuwY7sxZhVP_I9b-ruXYhGwCPW4_xMDQ0nG1jXwnnxwtSfixykg1-V3b2E1lD2Ri6pgpzjKUkO5KirEJgVfx0XtnR5BOTQncrKoWJLUiFstoRUHxiOE_gbc3fdmCHJD8e5X8iT-3rfSnT2A8gPAIS8eOIx0lHBudiggWAJ8Kp6WQYfYRg89RjXWlaMHkNoHWQapYRSTSMlu0ZwuxclfRj8vSfnQi_8JAP-LzfFWzPapIGRPbdw
+
+{
+  "ids": [
+    {
+      "id": 10
+    },
+    {
+      "id": 12
+    }
+  ]
+}
+
+
+### 根据分页查询简单商品信息
+GET http://127.0.0.1:9001/repository/project-repository-goods-service/goods/page-simple-goods-info?page=2
+Accept: application/json
+repository-user: eyJhbGciOiJSUzI1NiJ9.eyJyZXBvc2l0b3J5LXVzZXIiOiJ7XCJpZFwiOjMwLFwibmFtZVwiOlwiZmFrZXJcIn0iLCJqdGkiOiIzYWJhMzA3MS1hODhkLTRjYzUtODg3My1mYjg3YmViZGFiYzQiLCJleHAiOjE3MTI5Mzc2MDB9.iaKI0lvdbfls0PlkfwA2UdxZSzo7CQRdeIQbHvo3hZ0cOm8Z1qmIRF2Adpr3VfPJ0TnkrH-ZRGjPNmUeSFDlA-swAMWeJJeG-cRPiuwY7sxZhVP_I9b-ruXYhGwCPW4_xMDQ0nG1jXwnnxwtSfixykg1-V3b2E1lD2Ri6pgpzjKUkO5KirEJgVfx0XtnR5BOTQncrKoWJLUiFstoRUHxiOE_gbc3fdmCHJD8e5X8iT-3rfSnT2A8gPAIS8eOIx0lHBudiggWAJ8Kp6WQYfYRg89RjXWlaMHkNoHWQapYRSTSMlu0ZwuxclfRj8vSfnQi_8JAP-LzfFWzPapIGRPbdw
+
+
+### 根据 TableId 查询简单商品信息: 完整的 goods cache
+### 第二步验证, 删掉 cache
+### 第三步验证, 删除 cache 中其中一个商品
+POST http://127.0.0.1:9001/repository/project-repository-goods-service/goods/simple-goods-info
+Content-Type: application/json
+repository-user: eyJhbGciOiJSUzI1NiJ9.eyJyZXBvc2l0b3J5LXVzZXIiOiJ7XCJpZFwiOjMwLFwibmFtZVwiOlwiZmFrZXJcIn0iLCJqdGkiOiIzYWJhMzA3MS1hODhkLTRjYzUtODg3My1mYjg3YmViZGFiYzQiLCJleHAiOjE3MTI5Mzc2MDB9.iaKI0lvdbfls0PlkfwA2UdxZSzo7CQRdeIQbHvo3hZ0cOm8Z1qmIRF2Adpr3VfPJ0TnkrH-ZRGjPNmUeSFDlA-swAMWeJJeG-cRPiuwY7sxZhVP_I9b-ruXYhGwCPW4_xMDQ0nG1jXwnnxwtSfixykg1-V3b2E1lD2Ri6pgpzjKUkO5KirEJgVfx0XtnR5BOTQncrKoWJLUiFstoRUHxiOE_gbc3fdmCHJD8e5X8iT-3rfSnT2A8gPAIS8eOIx0lHBudiggWAJ8Kp6WQYfYRg89RjXWlaMHkNoHWQapYRSTSMlu0ZwuxclfRj8vSfnQi_8JAP-LzfFWzPapIGRPbdw
+
+{
+  "ids": [
+    {
+      "id": 11
+    },
+    {
+      "id": 12
+    }
+  ]
+}
+
+
+### 扣减商品库存
+PUT http://127.0.0.1:9001/repository/project-repository-goods-service/goods/deduct-goods-inventory
+Content-Type: application/json
+repository-user: eyJhbGciOiJSUzI1NiJ9.eyJyZXBvc2l0b3J5LXVzZXIiOiJ7XCJpZFwiOjMwLFwibmFtZVwiOlwiZmFrZXJcIn0iLCJqdGkiOiIzYWJhMzA3MS1hODhkLTRjYzUtODg3My1mYjg3YmViZGFiYzQiLCJleHAiOjE3MTI5Mzc2MDB9.iaKI0lvdbfls0PlkfwA2UdxZSzo7CQRdeIQbHvo3hZ0cOm8Z1qmIRF2Adpr3VfPJ0TnkrH-ZRGjPNmUeSFDlA-swAMWeJJeG-cRPiuwY7sxZhVP_I9b-ruXYhGwCPW4_xMDQ0nG1jXwnnxwtSfixykg1-V3b2E1lD2Ri6pgpzjKUkO5KirEJgVfx0XtnR5BOTQncrKoWJLUiFstoRUHxiOE_gbc3fdmCHJD8e5X8iT-3rfSnT2A8gPAIS8eOIx0lHBudiggWAJ8Kp6WQYfYRg89RjXWlaMHkNoHWQapYRSTSMlu0ZwuxclfRj8vSfnQi_8JAP-LzfFWzPapIGRPbdw
+
+[
+  {
+    "goodsId": 11,
+    "count": 100
+  },
+  {
+    "goodsId": 12,
+    "count": 34
+  }
+]
