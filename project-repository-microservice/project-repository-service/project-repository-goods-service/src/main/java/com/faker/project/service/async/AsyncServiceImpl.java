@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.faker.project.constant.GoodsConstant;
 import com.faker.project.entity.RepositoryGoods;
 import com.faker.project.goods.GoodsInfo;
-import com.faker.project.goods.SimpleGoodsInfo;
 import com.faker.project.service.IAsyncService;
 import com.faker.project.service.impl.IGoodsServiceImpl;
 import lombok.extern.slf4j.Slf4j;
