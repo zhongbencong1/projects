@@ -165,7 +165,7 @@ public class IGoodsServiceImpl extends ServiceImpl<GoodsServiceMapper, Repositor
         });
 
         // 更新扣减过库存的所有数据
-        boolean result = this.saveBatch(goodsList);
+        boolean result = this.saveOrUpdateBatch(goodsList);
         log.info("deduct goods inventory done");
         return result;
     }
