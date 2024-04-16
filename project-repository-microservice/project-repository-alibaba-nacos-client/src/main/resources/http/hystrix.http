@@ -1,0 +1,35 @@
+### 根据提供的 serviceId 获取实例信息
+GET http://127.0.0.1:8000/project-repository-nacos-client/hystrix/hystrix-command-annotation?serviceId=project-repository-nacos-client
+Content-Type: application/json
+
+### 根据提供的 serviceId 获取实例信息
+GET http://127.0.0.1:8000/project-repository-nacos-client/hystrix/simple-hystrix-command?serviceId=project-repository-nacos-client
+Content-Type: application/json
+
+### 根据提供的 serviceId 获取实例信息
+GET http://127.0.0.1:8000/project-repository-nacos-client/hystrix/hystrix-observable-command?serviceId=project-repository-nacos-client
+Content-Type: application/json
+
+### 根据提供的 serviceId 获取实例信息
+GET http://127.0.0.1:8000/project-repository-nacos-client/hystrix/cache-hystrix-command?serviceId=project-repository-nacos-client
+Content-Type: application/json
+
+### 根据提供的 serviceId 获取实例信息
+GET http://127.0.0.1:8000/project-repository-nacos-client/hystrix/cache-annotation-01?serviceId=project-repository-nacos-client
+Content-Type: application/json
+
+### 根据提供的 serviceId 获取实例信息
+GET http://127.0.0.1:8000/project-repository-nacos-client/hystrix/cache-annotation-02?serviceId=project-repository-nacos-client
+Content-Type: application/json
+
+### 根据提供的 serviceId 获取实例信息
+GET http://127.0.0.1:8000/project-repository-nacos-client/hystrix/cache-annotation-03?serviceId=project-repository-nacos-client
+Content-Type: application/json
+
+### 根据提供的 serviceId 获取实例信息
+GET http://127.0.0.1:8000/project-repository-nacos-client/hystrix/request-merge
+Content-Type: application/json
+
+### 根据提供的 serviceId 获取实例信息
+GET http://127.0.0.1:8000/project-repository-nacos-client/hystrix/request-merge-annotation
+Content-Type: application/json
