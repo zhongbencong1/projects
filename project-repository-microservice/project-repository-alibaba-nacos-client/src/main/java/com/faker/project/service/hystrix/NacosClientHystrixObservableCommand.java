@@ -48,7 +48,7 @@ public class NacosClientHystrixObservableCommand extends HystrixObservableComman
     protected Observable<List<ServiceInstance>> construct() {
 
         return Observable.create(new Observable.OnSubscribe<List<ServiceInstance>>() {
-            // Observable 有三个关键的事件方法, 分别是 onNext、onCompleted、onError
+            // Observable 有三个关键的事件方法, 分别是 onNext(发起服务调用)、onCompleted(服务调用完成)、onError(服务调用异常)
             @Override
             public void call(Subscriber<? super List<ServiceInstance>> subscriber) {
                 try {
@@ -68,24 +68,16 @@ public class NacosClientHystrixObservableCommand extends HystrixObservableComman
     /** 服务降级 */
     @Override
     protected Observable<List<ServiceInstance>> resumeWithFallback() {
-        return Observable.create(new Observable.OnSubscribe<List<ServiceInstance>>() {
-            @Override
-            public void call(Subscriber<? super List<ServiceInstance>> subscriber) {
-
-                try {
-                    if (!subscriber.isUnsubscribed()) {
-                        log.info("(fallback) subscriber command task: [{}], [{}]",
-                                JSON.toJSONString(serviceIds),
-                                Thread.currentThread().getName());
-                        subscriber.onNext(Collections.emptyList());
-                        subscriber.onCompleted();
-                        log.info("(fallback) command task completed: [{}], [{}]",
-                                JSON.toJSONString(serviceIds),
-                                Thread.currentThread().getName());
-                    }
-                } catch (Exception ex) {
-                    subscriber.onError(ex);
+        return Observable.create(subscriber -> {
+            try {
+                if (!subscriber.isUnsubscribed()) {
+                    log.info("(fallback) subscriber command task: [{}], [{}]", JSON.toJSONString(serviceIds), Thread.currentThread().getName());
+                    subscriber.onNext(Collections.emptyList());
+                    subscriber.onCompleted();
+                    log.info("(fallback) command task completed: [{}], [{}]", JSON.toJSONString(serviceIds), Thread.currentThread().getName());
                 }
+            } catch (Exception ex) {
+                subscriber.onError(ex);
             }
         });
     }
