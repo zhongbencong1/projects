@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * 带有缓存功能的 Hystrix
+ * 一次请求里面的缓存, 非多次请求的缓存 : 作用域一次request
  * */
 @Slf4j
 public class CacheHystrixCommand extends HystrixCommand<List<ServiceInstance>> {

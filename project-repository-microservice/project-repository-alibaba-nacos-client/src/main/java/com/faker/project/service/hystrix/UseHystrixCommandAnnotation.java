@@ -52,7 +52,6 @@ public class UseHystrixCommandAnnotation {
                     @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "1440")
             }
     )
-
     public List<ServiceInstance> getNacosClientInfo(String serviceId) {
         log.info("use hystrix command annotation to get nacos client info: [{}], [{}]", serviceId, Thread.currentThread().getName());
         return nacosClientService.getNacosClientInfo(serviceId);
