@@ -1,4 +1,4 @@
-package com.faker.project;
+package com.faker.project.designpattern;
 
 /**
  * 模板方法

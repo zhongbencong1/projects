@@ -1,4 +1,4 @@
-package com.faker.project;
+package com.faker.project.designpattern;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

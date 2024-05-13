@@ -1,5 +1,6 @@
 package com.faker.project.conf;
 
+import cn.hutool.core.date.DateUtil;
 import de.codecentric.boot.admin.server.config.AdminServerProperties;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -7,6 +8,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+
+import java.sql.Timestamp;
 
 /**
  * 配置安全认证, 以便其他的微服务可以注册,
@@ -52,5 +55,10 @@ public class SecuritySecureConfig extends WebSecurityConfigurerAdapter {
                         adminContextPath + "/instances",
                         adminContextPath + "/actuator/**"
                 );
+    }
+
+    public static void main(String[] args) {
+        Timestamp timestamp = DateUtil.date().toTimestamp();
+        System.out.println(timestamp);
     }
 }

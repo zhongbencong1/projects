@@ -1,4 +1,4 @@
-package com.faker.project;
+package com.faker.project.designpattern;
 
 /**
  * 工厂方法: 将对象实例化交给子类
