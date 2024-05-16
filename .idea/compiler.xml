@@ -10,6 +10,7 @@
         <module name="project-repository-alibaba-nacos-client" />
         <module name="project-repository-service-sdk" />
         <module name="project-repository-goods-service" />
+        <module name="project-repository-hystrix-dashboard" />
         <module name="project-repository-mvc-config" />
         <module name="project-repository-authority-center" />
         <module name="project-repository-service-config" />
@@ -19,6 +20,7 @@
         <module name="project-repository-common" />
         <module name="project-repository-account-service" />
         <module name="project-repository-admin" />
+        <module name="project-repository-kafka" />
       </profile>
     </annotationProcessing>
   </component>
@@ -32,10 +34,12 @@
       <module name="project-repository-design-pattern" options="-parameters" />
       <module name="project-repository-gateway" options="-parameters" />
       <module name="project-repository-goods-service" options="-parameters" />
-      <module name="project-repository-microservice" options="" />
+      <module name="project-repository-hystrix-dashboard" options="-parameters" />
+      <module name="project-repository-kafka" options="-parameters" />
+      <module name="project-repository-microservice" options="-parameters" />
       <module name="project-repository-mvc-config" options="-parameters" />
       <module name="project-repository-redis-lock" options="-parameters" />
-      <module name="project-repository-service" options="" />
+      <module name="project-repository-service" options="-parameters" />
       <module name="project-repository-service-config" options="-parameters" />
       <module name="project-repository-service-sdk" options="-parameters" />
       <module name="project-repository-socket" options="-parameters" />

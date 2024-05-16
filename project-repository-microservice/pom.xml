@@ -18,6 +18,8 @@
         <module>project-repository-admin</module>
         <module>project-repository-gateway</module>
         <module>project-repository-service</module>
+        <module>project-repository-hystrix-dashboard</module>
+        <module>project-repository-kafka</module>
     </modules>
 
     <artifactId>project-repository-microservice</artifactId>

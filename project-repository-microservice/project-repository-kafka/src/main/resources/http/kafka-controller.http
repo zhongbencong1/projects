@@ -1,0 +1,7 @@
+### kafka-send-message
+GET http://127.0.0.1:8001/kafka-study/kafka/send-message?key=faker&topic=kafka-faker
+Content-Type: application/json
+
+### kafka-send-message
+GET http://127.0.0.1:8001/kafka-study/kafka/send-message?topic=kafka-faker
+Content-Type: application/json

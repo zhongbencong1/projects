@@ -1,0 +1,9 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /kafka-study
+
+spring:
+  kafka:
+    # springboot 集成kafka的配置, 最低配置只需要配置spring.kafka.bootstrap-servers
+    bootstrap-servers: 127.0.0.1:9092
