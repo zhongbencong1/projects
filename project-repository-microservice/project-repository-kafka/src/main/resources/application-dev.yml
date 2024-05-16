@@ -12,5 +12,5 @@ spring:
 rocketmq:
   name-server: 127.0.0.1:9876
   producer:
-    # 发送同一类消息的设置为同一个group, 保证唯一
-    group:
+    # 发送同一类消息的设置为同一个group, 保证group唯一
+    group: project-rocketmq

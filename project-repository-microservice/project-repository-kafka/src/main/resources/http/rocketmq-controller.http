@@ -1,0 +1,15 @@
+### rocket-value
+GET http://127.0.0.1:8001/kafka-study/rocketmq/rocket-value
+Content-Type: application/json
+
+### rocket-key
+GET http://127.0.0.1:8001/kafka-study/rocketmq/rocket-key
+Content-Type: application/json
+
+### rocket-tag
+GET http://127.0.0.1:8001/kafka-study/rocketmq/rocket-tag
+Content-Type: application/json
+
+### rocket-all
+GET http://127.0.0.1:8001/kafka-study/rocketmq/rocket-all
+Content-Type: application/json
