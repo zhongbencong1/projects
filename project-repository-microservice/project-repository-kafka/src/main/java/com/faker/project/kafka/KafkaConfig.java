@@ -16,6 +16,8 @@ import java.util.Map;
 /**
  * 自定义 kafka 配置 : 生产者  消费者
  * 也可以通过yml文件进行配置, 一般复杂选择代码配置
+ * kafka概念了解: b站搜索 “小白debug” 视频: 消息队列Kafka是什么？架构是怎么样的？5分钟快速入门
+ * https://www.bilibili.com/video/BV1TT421y79S/?spm_id_from=333.999.0.0&vd_source=1a4a85b458951e35b23f415bb632a6c4
  */
 @Configuration
 public class KafkaConfig {
