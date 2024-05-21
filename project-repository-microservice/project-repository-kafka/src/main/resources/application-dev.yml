@@ -7,6 +7,13 @@ spring:
   kafka:
     # springboot 集成kafka的配置, 最低配置只需要配置spring.kafka.bootstrap-servers
     bootstrap-servers: 127.0.0.1:9092
+  datasource:
+    # 数据源
+    url: jdbc:mysql://127.0.0.1:3306/project_repository?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: rootroot
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
 
 # rocketmq配置 最低配置
 rocketmq:

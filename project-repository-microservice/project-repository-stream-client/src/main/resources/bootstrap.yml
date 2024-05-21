@@ -47,6 +47,7 @@ spring:
         # 默认接收方
         input:      # 这里用 Stream 给我们提供的默认 input 信道
           destination: project-stream-client-default
+          # group 消费者组, 为了防止消息被重复消费, 如果不配置, 每个实例都会消费 消息, 导致一个消息被重复消费+
           group: project-stream-default
           # 消费者开启分区支持
           consumer:
