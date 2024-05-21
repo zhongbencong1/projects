@@ -14,7 +14,7 @@ public class CustomPartitionSelectorStrategy implements PartitionSelectorStrateg
     /** @Param partitionCount 分区个数, 返回分区位置 */
     @Override
     public int selectPartition(Object key, int partitionCount) {
-        // 分区处理逻辑
+        // 分区处理逻辑: 比如通过某个字段来设置消息应该发送到哪个分区
         int partition = key.toString().hashCode() % partitionCount;
 
         log.info("spring cloud stream custom selector info: {}, {}, {}", key, partitionCount, partition);
