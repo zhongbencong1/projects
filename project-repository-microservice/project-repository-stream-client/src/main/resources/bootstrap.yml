@@ -27,16 +27,30 @@ spring:
       #      rocketmq:
       #        binder:
       #          name-server: 127.0.0.1:9876
+
       # 开启 stream 分区支持
+      instanceCount: 1  # 消费者的实例总数
+      instanceIndex: 0  # 当前消费实例的索引
       bindings:
         # output发送方 和 input接收方通常在两个工程中, 其中的destination需要保持同一个值
         # 默认发送方
         output:      # 这里用 Stream 给我们提供的默认 output 信道
           destination: project-stream-client-default    # 消息发往的目的地, 映射 Kafka 中的 Topic
           content-type: text/plain    # 消息发送的格式, 接收端不用指定格式, 但是发送端要
+          # 消息分区
+          producer:
+            # partitionKeyExpression: payload.author  #分区字段配置, 通过分区关键字, payload 指的是发送的对象, author 是对象中的属性
+            partitionCount: 1   # 分区大小
+            # 一般业务使用自定义的分区策略, 注释掉 partitionKeyExpression, 配置bean进行分区
+            partitionKeyExtractorName: customPartitionKeyExtractorStrategy
+            partitionSelectorName: customPartitionSelectorStrategy
         # 默认接收方
         input:      # 这里用 Stream 给我们提供的默认 input 信道
           destination: project-stream-client-default
+          group: project-stream-default
+          # 消费者开启分区支持
+          consumer:
+            partitioned: true
 
         # 自定义通信信道-发送方
         customOutput:
@@ -45,6 +59,7 @@ spring:
         # 自定义通信信道-接收方
         customInput:
           destination: project-stream-client-custom
+          group: project-stream-custom
 
   # spring-kafka 的配置
   kafka:

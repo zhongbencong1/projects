@@ -18,6 +18,7 @@ public class Message {
 
     private String org;
 
+    /** bootstrap.yml中的 partitionKeyExpression 配置项, 用作分区关键字, 如果消息的author值一样, 则会被同一个消费实例消费 */
     private String author;
 
     private String version;
