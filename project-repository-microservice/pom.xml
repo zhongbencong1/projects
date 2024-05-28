@@ -20,6 +20,7 @@
         <module>project-repository-service</module>
         <module>project-repository-hystrix-dashboard</module>
         <module>project-repository-kafka</module>
+        <module>project-repository-stream-client</module>
     </modules>
 
     <artifactId>project-repository-microservice</artifactId>
