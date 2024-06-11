@@ -3,8 +3,10 @@ package com.faker.project.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.faker.project.entity.PageSimpleOrderDetail;
 import com.faker.project.entity.ProjectOrder;
 import com.faker.project.mapper.OrderServiceMapper;
+import com.faker.project.order.OrderInfo;
 import com.faker.project.service.IOrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -28,5 +30,15 @@ public class IOrderServiceImpl extends ServiceImpl<OrderServiceMapper, ProjectOr
         Page<ProjectOrder> result = this.page(pageInfo, queryWrapper);
         log.info("findAllByUserId output param: result.size:{}", result.getSize());
         return result;
+    }
+
+    @Override
+    public Long createOrder(OrderInfo orderInfo) {
+        return null;
+    }
+
+    @Override
+    public PageSimpleOrderDetail getOrderListByPage(Integer offset, Integer limit, Boolean order) {
+        return null;
     }
 }
