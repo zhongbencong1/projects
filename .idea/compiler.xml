@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="project-repository-order-service" />
         <module name="project-repository-gateway" />
         <module name="project-repository-alibaba-nacos-client" />
         <module name="project-repository-service-sdk" />
@@ -39,6 +40,7 @@
       <module name="project-repository-kafka" options="-parameters" />
       <module name="project-repository-microservice" options="-parameters" />
       <module name="project-repository-mvc-config" options="-parameters" />
+      <module name="project-repository-order-service" options="-parameters" />
       <module name="project-repository-redis-lock" options="-parameters" />
       <module name="project-repository-service" options="-parameters" />
       <module name="project-repository-service-config" options="-parameters" />
