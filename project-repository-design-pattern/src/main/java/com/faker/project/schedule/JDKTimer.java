@@ -1,5 +1,7 @@
 package com.faker.project.schedule;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -7,8 +9,9 @@ import java.util.TimerTask;
  * jdk 自带定时任务 定时器
  * 支持注册多个定时任务
  */
+@Slf4j
 public class JDKTimer {
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         //1-创建Timer对象
         Timer timer = new Timer();
 
