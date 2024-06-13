@@ -28,6 +28,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+        <!-- 分布式事务: seata + HikariCP-->
         <!-- seata -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

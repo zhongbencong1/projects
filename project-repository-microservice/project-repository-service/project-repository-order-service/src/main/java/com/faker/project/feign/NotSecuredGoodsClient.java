@@ -1,5 +1,6 @@
 package com.faker.project.feign;
 
+import com.faker.project.common.TableId;
 import com.faker.project.goods.DeductGoodsInventory;
 import com.faker.project.goods.SimpleGoodsInfo;
 import com.faker.project.vo.CommonResponse;
@@ -23,5 +24,5 @@ public interface NotSecuredGoodsClient {
 
     /** 根据 ids 查询简单的商品信息 */
     @RequestMapping(value = "/project-repository-goods-service/goods/simple-goods-info", method = RequestMethod.POST)
-    CommonResponse<List<SimpleGoodsInfo>> getSimpleGoodsInfoByTableId(@RequestBody Long tableId);
+    CommonResponse<List<SimpleGoodsInfo>> getSimpleGoodsInfoByTableId(@RequestBody TableId tableId);
 }
