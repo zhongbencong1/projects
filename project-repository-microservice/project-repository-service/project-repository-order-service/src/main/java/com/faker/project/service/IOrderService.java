@@ -18,5 +18,5 @@ public interface IOrderService {
     TableId createOrder(OrderInfo orderInfo);
 
     /** 获取当前用户订单信息 */
-    PageSimpleOrderDetail getOrderListByPage(Integer offset, Integer limit, Boolean order);
+    PageSimpleOrderDetail getOrderListByPage(Integer offset, Integer limit);
 }

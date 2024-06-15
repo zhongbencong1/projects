@@ -14,6 +14,7 @@ import com.faker.project.feign.NotSecuredGoodsClient;
 import com.faker.project.feign.SecureAddressClient;
 import com.faker.project.feign.SecuredGoodsClient;
 import com.faker.project.filter.AccessContext;
+import com.faker.project.goods.DeductGoodsInventory;
 import com.faker.project.goods.SimpleGoodsInfo;
 import com.faker.project.mapper.OrderServiceMapper;
 import com.faker.project.order.LogisticsMessage;
@@ -30,10 +31,13 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -146,23 +150,74 @@ public class IOrderServiceImpl extends ServiceImpl<OrderServiceMapper, ProjectOr
     }
 
     @Override
-    public PageSimpleOrderDetail getOrderListByPage(Integer offset, Integer limit, Boolean order) {
-        if (offset <= 0) {
-            offset = 1;
-        }
+    public PageSimpleOrderDetail getOrderListByPage(Integer offset, Integer limit) {
+        offset = offset <= 0 ? 1 : offset;
 
         // 1页10条数据, 按照id倒序
         LambdaQueryWrapper<ProjectOrder> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.orderByDesc(ProjectOrder::getId)
-                .eq(ProjectOrder::getUserId, AccessContext.getLoginUserInfo().getId());
-        List<ProjectOrder> orders = this.page(new Page<>(offset, limit), queryWrapper).getRecords();
+        queryWrapper.orderByDesc(ProjectOrder::getId).eq(ProjectOrder::getUserId, AccessContext.getLoginUserInfo().getId());
+        Page<ProjectOrder> page = this.page(new Page<>(offset, limit), queryWrapper);
+        List<ProjectOrder> orders = page.getRecords();
         if (CollectionUtils.isEmpty(orders)) {
             return new PageSimpleOrderDetail(Collections.emptyList(), Boolean.FALSE);
         }
+        // 获取订单中所有的goodsId
+        Set<Long> goodsIdsInOrders = new HashSet<>();
+        orders.forEach(s -> {
+            List<DeductGoodsInventory> deductGoodsInventories = JSON.parseArray(s.getOrderDetail(), DeductGoodsInventory.class);
+            goodsIdsInOrders.addAll(deductGoodsInventories.stream().map(DeductGoodsInventory::getGoodsId).collect(Collectors.toList()));
+        });
+        assert CollectionUtils.isNotEmpty(goodsIdsInOrders);
 
+        // 是否还有更多页: 总页数是否大于当前的offset
+        boolean hasMore = page.getPages() > offset;
 
+        // 获取商品信息
+        List<SimpleGoodsInfo> goodsInfos = securedGoodsClient.getSimpleGoodsInfoByTableId(
+                new TableId(goodsIdsInOrders.stream().map(TableId.Id::new).collect(Collectors.toList()))).getData();
 
+        // 获取地址信息
+        AddressInfo addressInfo = secureAddressClient.getAddressInfoByTablesId(new TableId(
+                orders.stream().map(ProjectOrder::getAddressId).map(TableId.Id::new).distinct().collect(Collectors.toList()))).getData();
 
-        return null;
+        // 组装订单中的商品, 地址信息 -> 订单信息
+        return new PageSimpleOrderDetail(assembleSimpleOrderDetail(orders, goodsInfos, addressInfo), hasMore);
     }
+
+    /** 组装订单详情 */
+    private List<PageSimpleOrderDetail.SingleOrderItem> assembleSimpleOrderDetail(
+            List<ProjectOrder> orders, List<SimpleGoodsInfo> goodsInfos, AddressInfo addressInfo
+    ) {
+        Map<Long, SimpleGoodsInfo> id2GoodsInfo = goodsInfos.stream().collect(Collectors.toMap(SimpleGoodsInfo::getId, Function.identity()));
+        Map<Long, AddressInfo.AddressItem> id2AddressItem = addressInfo.getAddressItems().stream().collect(Collectors.toMap(AddressInfo.AddressItem::getId, Function.identity()));
+
+        List<PageSimpleOrderDetail.SingleOrderItem> result = new ArrayList<>(orders.size());
+        orders.forEach(s -> {
+            PageSimpleOrderDetail.SingleOrderItem orderItem = new PageSimpleOrderDetail.SingleOrderItem();
+            orderItem.setId(s.getId());
+            orderItem.setUserAddress(id2AddressItem.getOrDefault(s.getAddressId(), new AddressInfo.AddressItem(-1L)).toUserAddress());
+
+            orderItem.setGoodsItems(buildOrderGoodsItem(s, id2GoodsInfo));
+            result.add(orderItem);
+        });
+
+        return result;
+    }
+
+    /** 构造商品信息 */
+    private List<PageSimpleOrderDetail.SingleOrderGoodsItem> buildOrderGoodsItem(
+            ProjectOrder order, Map<Long, SimpleGoodsInfo> id2GoodsInfo
+    ) {
+        List<PageSimpleOrderDetail.SingleOrderGoodsItem> result = new ArrayList<>();
+        List<DeductGoodsInventory> goodsAndCount = JSON.parseArray(order.getOrderDetail(), DeductGoodsInventory.class);
+
+        goodsAndCount.forEach(gc -> {
+            PageSimpleOrderDetail.SingleOrderGoodsItem goodsItem = new PageSimpleOrderDetail.SingleOrderGoodsItem();
+            goodsItem.setCount(gc.getCount());
+            goodsItem.setSimpleGoodsInfo(id2GoodsInfo.getOrDefault(gc.getGoodsId(), new SimpleGoodsInfo(-1L)));
+            result.add(goodsItem);
+        });
+        return result;
+    }
+
 }
