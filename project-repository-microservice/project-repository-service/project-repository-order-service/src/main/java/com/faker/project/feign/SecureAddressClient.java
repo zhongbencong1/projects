@@ -21,7 +21,7 @@ public interface SecureAddressClient {
 
     /** 根据 id 查询地址信息 */
     @RequestMapping(
-            value = "/project-account-service/address/address-info",
+            value = "/project-account-service/address/address-info-by-table-id",
             method = RequestMethod.POST
     )
     CommonResponse<AddressInfo> getAddressInfoByTablesId(@RequestBody TableId tableId);
