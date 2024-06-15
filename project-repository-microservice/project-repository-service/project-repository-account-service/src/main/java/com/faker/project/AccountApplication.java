@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Import;
 public class AccountApplication {
 
     public static void main(String[] args) {
-
         SpringApplication.run(AccountApplication.class, args);
     }
+
 }
