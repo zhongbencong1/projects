@@ -1,0 +1,20 @@
+### 创建订单
+POST http://127.0.0.1:9001/repository/project-order-service/order/create-order
+Content-Type: application/json
+Accept: application/json
+repository-user: eyJhbGciOiJSUzI1NiJ9.eyJyZXBvc2l0b3J5LXVzZXIiOiJ7XCJpZFwiOjMwLFwibmFtZVwiOlwiZmFrZXJcIn0iLCJqdGkiOiI0MjJmYzVhZS0yOWIyLTQ1YjUtYTFhMy04YTIxZGE2ZjZiNGEiLCJleHAiOjE3MTg0NjcyMDB9.AP3QK1K2D0X9c76mbgoHKUp1KpQEIB7B0pHtGQMu9mtrQMHmG2MfSwLi70Fwyw1facVdTvxDeL5wjigiV4q8MvjvYQrq16hnlxHQmABBhOl-p7VPoVlkNPcHNeohYZYDB4zTfX7Wx003GTrFMYTFClqmW1qrH-MCMsviEli2aRZ94SLvcCmFTnRog3EUNhY0l6PY-faTzIEU11VQJrEeB1Vh1VSV0fYVnbUPmHXq2KbY1qVj2UVCETR768cXtc9mFw43CD0l0rAl2rlSZhD1njfQL1UeLi-PzWOxVPF7GJUuMbLVAxWEgsDxD7yuAk6KKS71bv2NR678Zze4xzCXXQ
+
+{
+  "userAddress": 1,
+  "orderItems": [
+    {
+      "goodsId": 1,
+      "count": 5
+    }
+  ]
+}
+
+### 查询订单
+GET http://127.0.0.1:9001/repository/project-order-service/order/order-detail?offset=1&limit=10
+Accept: application/json
+repository-user: eyJhbGciOiJSUzI1NiJ9.eyJyZXBvc2l0b3J5LXVzZXIiOiJ7XCJpZFwiOjMwLFwibmFtZVwiOlwiZmFrZXJcIn0iLCJqdGkiOiI0MjJmYzVhZS0yOWIyLTQ1YjUtYTFhMy04YTIxZGE2ZjZiNGEiLCJleHAiOjE3MTg0NjcyMDB9.AP3QK1K2D0X9c76mbgoHKUp1KpQEIB7B0pHtGQMu9mtrQMHmG2MfSwLi70Fwyw1facVdTvxDeL5wjigiV4q8MvjvYQrq16hnlxHQmABBhOl-p7VPoVlkNPcHNeohYZYDB4zTfX7Wx003GTrFMYTFClqmW1qrH-MCMsviEli2aRZ94SLvcCmFTnRog3EUNhY0l6PY-faTzIEU11VQJrEeB1Vh1VSV0fYVnbUPmHXq2KbY1qVj2UVCETR768cXtc9mFw43CD0l0rAl2rlSZhD1njfQL1UeLi-PzWOxVPF7GJUuMbLVAxWEgsDxD7yuAk6KKS71bv2NR678Zze4xzCXXQ

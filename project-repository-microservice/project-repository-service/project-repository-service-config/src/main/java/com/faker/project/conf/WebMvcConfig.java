@@ -20,7 +20,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
         registry.addInterceptor(new LoginUserInfoInterceptor())
                 .addPathPatterns("/**").order(0);
 
-        // 添加拦截器, seata 传递 xid 事务 id 给其他的微服务. 其他的服务会写 undo_log, 才能够实现回滚
+        // 添加拦截器, seata 传递 xid 事务 id 给其他的微服务. 其他的服务会写 undo_log, 才能够实现分布式事务的回滚
         registry.addInterceptor(new SeataHandlerInterceptor()).addPathPatterns("/**");
     }
 
