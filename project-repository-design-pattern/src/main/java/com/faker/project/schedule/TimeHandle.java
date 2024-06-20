@@ -22,7 +22,7 @@ public class TimeHandle {
      * stopWatch计时器: 测量代码执行时间的工具类
      */
     @SneakyThrows
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start("task1");
         Thread.sleep(1000);
