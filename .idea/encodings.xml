@@ -10,6 +10,7 @@
     <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-hystrix-dashboard/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-kafka/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-mvc-config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-sentinel-client/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-service/project-repository-account-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-service/project-repository-goods-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-service/project-repository-logistics-service/src/main/java" charset="UTF-8" />

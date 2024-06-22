@@ -16,6 +16,7 @@
         <module name="project-repository-mvc-config" />
         <module name="project-repository-authority-center" />
         <module name="project-repository-service-config" />
+        <module name="project-repository-sentinel-client" />
         <module name="project-repository-socket" />
         <module name="project-repository-stream-client" />
         <module name="project-repository-logistics-service" />
@@ -45,6 +46,7 @@
       <module name="project-repository-mvc-config" options="-parameters" />
       <module name="project-repository-order-service" options="-parameters" />
       <module name="project-repository-redis-lock" options="-parameters" />
+      <module name="project-repository-sentinel-client" options="-parameters" />
       <module name="project-repository-service" options="" />
       <module name="project-repository-service-config" options="-parameters" />
       <module name="project-repository-service-sdk" options="-parameters" />
