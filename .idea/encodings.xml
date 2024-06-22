@@ -12,6 +12,7 @@
     <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-mvc-config/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-service/project-repository-account-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-service/project-repository-goods-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-service/project-repository-logistics-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-service/project-repository-order-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-service/project-repository-service-config/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-repository-microservice/project-repository-service/project-repository-service-sdk/src/main/java" charset="UTF-8" />
@@ -24,7 +25,7 @@
     <file url="file://$PROJECT_DIR$/project-repository-socket/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/../../../../../repository/repository01/org/springframework/boot/spring-boot-starter-parent/2.3.1.RELEASE/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/../../../../../repository/repository01/org/springframework/boot/spring-boot-starter-parent/2.5.2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../repository/repository01/org/springframework/boot/spring-boot-starter-parent/2.3.1.RELEASE/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../repository/repository01/org/springframework/boot/spring-boot-starter-parent/2.5.2/src/main/resources" charset="UTF-8" />
   </component>
 </project>

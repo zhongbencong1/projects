@@ -18,6 +18,7 @@
         <module name="project-repository-service-config" />
         <module name="project-repository-socket" />
         <module name="project-repository-stream-client" />
+        <module name="project-repository-logistics-service" />
         <module name="project-repository-design-pattern" />
         <module name="project-repository-redis-lock" />
         <module name="project-repository-common" />
@@ -39,6 +40,7 @@
       <module name="project-repository-goods-service" options="-parameters" />
       <module name="project-repository-hystrix-dashboard" options="-parameters" />
       <module name="project-repository-kafka" options="-parameters" />
+      <module name="project-repository-logistics-service" options="-parameters" />
       <module name="project-repository-microservice" options="" />
       <module name="project-repository-mvc-config" options="-parameters" />
       <module name="project-repository-order-service" options="-parameters" />

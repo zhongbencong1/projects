@@ -1,0 +1,74 @@
+server:
+  port: 8004
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: project-repository-logistics-service
+  cloud:
+    stream:
+      # SpringCloud Stream + Kafka
+      kafka:
+        binder:
+          brokers: 127.0.0.1:9092
+          auto-create-topics: true  # 如果设置为false, 就不会自动创建Topic, 你在使用之前需要手动创建好
+      bindings:
+        logisticsInput:
+          destination: project-order
+          content-type: text/plain
+    alibaba:
+      seata:
+        tx-service-group: project-order-transaction # seata 全局事务分组
+    nacos:
+      discovery:
+        enabled: true # 如果不想使用 Nacos 进行服务注册和发现, 设置为 false 即可
+        server-addr: 127.0.0.1:8848
+        # server-addr: 127.0.0.1:8848,127.0.0.1:8849,127.0.0.1:8850 # Nacos 服务器地址
+        namespace: b66ca5cc-f22a-4d85-a2f8-3a62923f026d
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    producer:
+      retries: 3
+    consumer:
+      auto-offset-reset: latest
+  sleuth:
+    sampler:
+      probability: 1.0  # 采样比例, 1.0 表示 100%, 默认是 0.1
+  zipkin:
+    sender:
+      type: kafka # 默认是 http
+    base-url: http://localhost:9411/
+  datasource:
+    # 数据源
+    url: jdbc:mysql://127.0.0.1:3306/project_repository?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: rootroot
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    # 连接池
+#    hikari:
+#      maximum-pool-size: 8
+#      minimum-idle: 4
+#      idle-timeout: 30000
+#      connection-timeout: 30000
+#      max-lifetime: 45000
+#      auto-commit: true
+#      pool-name: CouponHikariCP
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    # password:
+    # 连接超时时间
+    timeout: 10000
+
+# 暴露端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
