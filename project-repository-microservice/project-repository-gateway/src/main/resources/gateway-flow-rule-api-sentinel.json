@@ -1,0 +1,14 @@
+[
+  {
+    "apiName": "nacos-client-api",
+    "predicateItems": [
+      {
+        "pattern": "/repository/project-repository-nacos-client/nacos-client/project-config"
+      },
+      {
+        "pattern": "/repository/project-repository-nacos-client/**",
+        "matchStrategy": 1
+      }
+    ]
+  }
+]
