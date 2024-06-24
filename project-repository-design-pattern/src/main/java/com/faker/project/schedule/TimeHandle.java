@@ -1,12 +1,13 @@
 package com.faker.project.schedule;
 
-import cn.hutool.core.date.DateUnit;
-import cn.hutool.core.date.DateUtil;
 import com.faker.project.Entity;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StopWatch;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -15,14 +16,20 @@ import java.util.Set;
 
 @Slf4j
 public class TimeHandle {
-    public static void main1(String[] args) {
+    /** 计算两个时间之间的差值 */
+    public static void main(String[] args) throws ParseException {
         String date1 = "2023-11-12 14:04:00";
-        String date2 = "2023-11-13 14:04:00";
-        long week = DateUtil.between(DateUtil.parseDate(date1), DateUtil.parseDate(date2), DateUnit.WEEK);
-        long day = DateUtil.between(DateUtil.parseDate(date1), DateUtil.parseDate(date2), DateUnit.DAY);
-        long hour = DateUtil.between(DateUtil.parseDate(date1), DateUtil.parseDate(date2), DateUnit.HOUR);
-        long minute = DateUtil.between(DateUtil.parseDate(date1), DateUtil.parseDate(date2), DateUnit.MINUTE);
-        log.info("两个时间相差: {}周, {}天, {}小时, {}分钟", week, day, hour, minute);
+        String date2 = "2023-11-19 10:03:00";
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        long time1 = dateFormat.parse(date1).getTime();
+        long time2 = dateFormat.parse(date2).getTime();
+
+        long cha = (time2 - time1) / 1000;
+        int day = (int) (cha / (60 * 60 * 24));
+        int hours = (int) (cha / (60 * 60)) % 24;
+        int minutes = (int) (cha / 60) % 60;
+
+        log.info("两个时间相差: {}天, {}小时, {}分钟" , day, hours, minutes);
     }
 
     /**
@@ -51,7 +58,7 @@ public class TimeHandle {
         }
     };
 
-    public static void main(String[] args) {
+    public static void main5(String[] args) {
         HashSet<Entity> entities = new HashSet<>();
         entities.add(new Entity("no1", "faker1", new Entity.DataInfo()));
         listMap.put("1", entities);
