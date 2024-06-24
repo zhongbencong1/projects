@@ -1,5 +1,7 @@
 package com.faker.project.schedule;
 
+import cn.hutool.core.date.DateUnit;
+import cn.hutool.core.date.DateUtil;
 import com.faker.project.Entity;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -8,6 +10,7 @@ import org.springframework.util.StopWatch;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -17,7 +20,7 @@ import java.util.Set;
 @Slf4j
 public class TimeHandle {
     /** 计算两个时间之间的差值 */
-    public static void main(String[] args) throws ParseException {
+    public static void main11(String[] args) throws ParseException {
         String date1 = "2023-11-12 14:04:00";
         String date2 = "2023-11-19 10:03:00";
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -30,6 +33,17 @@ public class TimeHandle {
         int minutes = (int) (cha / 60) % 60;
 
         log.info("两个时间相差: {}天, {}小时, {}分钟" , day, hours, minutes);
+    }
+
+    public static void main(String[] args) {
+        Date startTime = DateUtil.parse("2022-09-05 12:23:25");
+        Date endTime = DateUtil.parse("2022-08-25 18:21:22");
+        long weeks = DateUtil.between(startTime, endTime, DateUnit.WEEK);
+        long days = DateUtil.between(startTime, endTime, DateUnit.DAY) % 7 ;
+        long hours = DateUtil.between(startTime, endTime, DateUnit.HOUR) % 24;
+        long minutes = DateUtil.between(startTime, endTime, DateUnit.MINUTE) % 60;
+        long seconds = DateUtil.between(startTime, endTime, DateUnit.SECOND) % 60;
+        log.info("两个时间相差: {}周, {}天, {}小时, {}分钟, {}秒" , weeks, days, hours, minutes, seconds);
     }
 
     /**
