@@ -6,6 +6,7 @@ import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import ch.qos.logback.core.rolling.RollingFileAppender;
 import ch.qos.logback.core.rolling.TimeBasedRollingPolicy;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
@@ -14,6 +15,7 @@ import java.nio.charset.StandardCharsets;
  * 动态构造 Logger 对象
  */
 @SuppressWarnings("all")
+@Slf4j(topic = "topicName")
 public class LogbackHolder {
 
     /** 根据名称获取 logger 实例 */
@@ -65,6 +67,7 @@ public class LogbackHolder {
     }
 
     public static void main(String[] args) {
-        getLogger("faker").info("dynamic construct logback...");
+        getLogger("faker").info("dynamic construct logback..."); // 会生成日志文件
+        log.info("use slf4j log");
     }
 }
