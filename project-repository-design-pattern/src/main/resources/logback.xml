@@ -5,7 +5,7 @@
 <!-- 输出打印到控制台 appender, 几乎是默认的配置 -->
 <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
     <encoder charset="UTF-8">
-        <!-- 输出的日志文本格式, 其他的 appender 与之相同 -->
+        <!-- 输出的日志文本格式, 其他的 appender 与之相同 --> <!-- [%X{REQUEST_ID}] MDC相关配置 -->
         <pattern>[%X{REQUEST_ID}] %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} %L - %msg%n</pattern>
         <charset>UTF-8</charset>
     </encoder>
